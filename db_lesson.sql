@@ -113,5 +113,3 @@ select p.name, p.department_id, r.content from people p join reports r using (pe
 
 Q11
 select p.name from people p left outer join reports r using (person_id) where report_id is NULL;
-
-プルリクエストの実行

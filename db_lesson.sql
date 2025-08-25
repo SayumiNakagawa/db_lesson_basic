@@ -115,3 +115,38 @@ Q11
 select p.name from people p left outer join reports r using (person_id) where report_id is NULL;
 
 プルリクエスト2回目
+
+
+以下修正して３回目のプルリクエスト
+
+Q3修正
+部署テーブル
+update departments set name = '営業' where department_id = '1';
+update departments set name = '開発' where department_id = '2';
+update departments set name = '経理' where department_id = '3';
+update departments set name = '人事' where department_id = '4';
+update departments set name = '情報システム' where department_id = '5';
+
+人物テーブル
+insert into people (name, email) values ('佐藤さん', 'sato@gizumo.jp'),
+('鈴木さん', 'suzuki@gizumo.jp'),
+('高橋さん', 'takahasi@gizumo.jp'),
+('田中さん', 'tanaka@gizumo.jp'),
+('伊藤さん', 'ito@gizumo.jp'),
+('山本さん', 'yamamoto@gizumo.jp'),
+('渡辺さん', 'watanabe@gizumo.jp'),
+('中村さん', 'nakamura@gizumo.jp'),
+('小林さん', 'kobayashi@gizumo.jp'),
+('加藤さん', 'kato@gizumo.jp');
+
+Q5修正
+select name, age from people where gender = '1' order by age desc;
+
+Q8修正
+select * from people where department_id = '1' order by age asc;
+
+Q10修正
+select p.name, d.name, r.content
+from people p
+join reports r using (person_id) 
+join departments d using (department_id);
